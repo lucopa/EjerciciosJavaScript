@@ -5,8 +5,8 @@ console.log(`Fecha: ${dia} de ${mes} del ${año}`);
 
 // b. Dado un array de números, desestructura los números en posiciones impares.
 const numeros = [1, 2, 3, 4, 5, 6];
-const [, num2, , num4, , num6] = numeros;
-console.log(`Números impares: ${num2}, ${num4}, ${num6}`);
+const [, num2, , num4,] = numeros;
+console.log(`Números impares: ${num2}, ${num4}`);
 
 // c. Desestructura el primer número, el segundo y el resto en otra variable.
 const [primerNumero, segundoNumero, ...restoNumeros] = numeros;

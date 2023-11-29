@@ -2,7 +2,7 @@
 const datos = [];
 
 // b. Añade a "datos" los números del 1 al 50 con un bucle for.
-for (const i = 1; i <= 50; i++) {
+for (let i = 1; i <= 50; i++) {
   datos.push(i);
 }
 
@@ -20,9 +20,9 @@ const copiaDatosFrom = Array.from(datos);
 
 // g. Crea un array multidimensional de 10 filas (i) y 10 columnas (j). Inicializa cada celda con el valor i*j.
 const arrayMultidimensional = new Array(10);
-for (const i = 0; i < arrayMultidimensional.length; i++) {
+for (let i = 0; i < arrayMultidimensional.length; i++) {
   arrayMultidimensional[i] = new Array(10);
-  for (const j = 0; j < arrayMultidimensional[i].length; j++) {
+  for (let j = 0; j < arrayMultidimensional[i].length; j++) {
     arrayMultidimensional[i][j] = i * j;
   }
 }
@@ -39,7 +39,7 @@ delete numerosArray[1];
 // j. Calcula el producto de todos los números del array "datos" con forEach.
 const producto = 1;
 numerosArray.forEach(numero => {
-  producto *= numero;
+  producto2= producto* numero;
 });
 
 // k. Cada elemento x del array datos debe cambiarse por x*x. Usa forEach
