@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Validación de Formulario</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input, button {
+      margin: 5px;
+      padding: 8px;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Validación de Formulario</h1>
+  <form id="formulario">
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="text" id="email" placeholder="Correo Electrónico">
+    <input type="number" id="edad" placeholder="Edad">
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script src="Ejercicio11.js"></script>
+</body>
+</html>

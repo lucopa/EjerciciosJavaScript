@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Contraseñas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+      padding: 5px;
+      width: 50px;
+    }
+
+    button {
+      padding: 8px 20px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    #password {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generador de Contraseñas</h1>
+  <label for="longitud">Longitud de la Contraseña:</label>
+  <input type="number" id="longitud" min="1" value="8">
+  <br>
+  <button id="generar">Generar Contraseña</button>
+  <p id="password"></p>
+
+  <script src="Ejercicio9.js"></script>
+</body>
+</html>
