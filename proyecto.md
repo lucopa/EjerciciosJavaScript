@@ -24,11 +24,83 @@ Añadiremos nuestras propias clases POJO y Adaptadores.
 ![Ejemplo de imagen](https://github.com/lucopa/EjerciciosJavaScript/blob/main/pantallazos/Login.png?raw=true)
 
 2. **activity_main.xml**: Diseño de la interfaz de usuario principal que muestra la lista de películas.
+![Ejemplo de imagen](https://github.com/lucopa/EjerciciosJavaScript/blob/main/pantallazos/recyclerview.png?raw=true)
 3. **cardview_film.xml**: Diseño de un elemento de la lista de películas utilizando CardView.
+![Ejemplo de imagen](https://github.com/lucopa/EjerciciosJavaScript/blob/main/pantallazos/cardview.png?raw=true)
 
 ## VERSIÓN 1.2
 En esta segunda versión, se realiza el crud completo. Añadimos las funciones de editar y dar de alta nuevas películas.
 
 ## Estructura del Proyecto:
-Contiene los mismos activitys que en la versión anterior 
+Contiene los mismos activitys que en la versión anterior. Dentro del **MainActivity.kt** se han añadido los métodos de editar y dar de alta:
+
+Editar:
+
+```kotlin
+ private fun onEditItem(position: Int) {
+        val dialogView = EditFilmDialogBinding.inflate(layoutInflater)
+        val selectedItem = filmsMutableList[position]
+
+        dialogView.editTitulo.setText(selectedItem.film)
+        dialogView.editGenero.setText(selectedItem.genero)
+
+        val dialog = AlertDialog.Builder(this)
+        dialog.setView(dialogView.root)
+        dialog.setTitle("Editar película")
+
+        dialog.setPositiveButton("Guardar") { _, _ ->
+            val newTitle = dialogView.editTitulo.text.toString()
+            val newGenre = dialogView.editGenero.text.toString()
+
+            selectedItem.film = newTitle
+            selectedItem.genero = newGenre
+
+
+            adapter.notifyItemChanged(position)
+
+            Toast.makeText(this, "Película editada: $newTitle", Toast.LENGTH_SHORT).show()
+        }
+
+        dialog.setNegativeButton("Cancelar") { _, _ ->
+            Toast.makeText(this, "Edición cancelada", Toast.LENGTH_SHORT).show()
+        }
+
+        dialog.show()
+    }
+```
+Dar de alta:
+```kotlin
+  private fun showAddFilmDialog() {
+        val dialogView = AddFilmDialogBinding.inflate(layoutInflater)
+        val dialog = AlertDialog.Builder(this)
+        dialog.setView(dialogView.root)
+        dialog.setTitle("Añadir Nueva Película")
+
+        dialog.setPositiveButton("Guardar") { _, _ ->
+            val newTitle = dialogView.editTitulo.text.toString()
+            val newGenre = dialogView.editGenero.text.toString()
+            val newPhotoUrl = dialogView.editPhotoUrl.text.toString()
+
+
+            val newFilm = Films(newTitle, newGenre, newPhotoUrl)
+            filmsMutableList.add(newFilm)
+            adapter.notifyItemInserted(filmsMutableList.size - 1)
+
+            Toast.makeText(this, "Nueva película añadida: $newTitle", Toast.LENGTH_SHORT).show()
+        }
+
+        dialog.setNegativeButton("Cancelar") { _, _ ->
+            Toast.makeText(this, "Añadir película cancelado", Toast.LENGTH_SHORT).show()
+        }
+
+        dialog.show()
+    }
+```
 # Archivos XML:
+Contiene los mismos archivos xml que en la versión 1.1 pero con algunos cambios:
+1. **activity_login.xml**: el diseño sigue exactamente igual.
+
+2. **activity_main.xml**: Se han añadido nuevas películas y si deslizas hacia abajo se podrán ver. Hay un nuevo boton **Añadir Pelicula Nueva** que permite añadir películas nuevas en la que aparecerá un dialog y tendrás que rellenar los campos de título, género e imagen para poder crear una nueva. También hay unos nuevos botones en el cardview que explicaré en su apartado.
+![Ejemplo de imagen](https://github.com/lucopa/EjerciciosJavaScript/blob/main/pantallazos/crudcompleto.png?raw=true)
+3. **cardview_film.xml**: Diseño de un elemento de la lista de películas utilizando CardView.
+![Ejemplo de imagen](https://github.com/lucopa/EjerciciosJavaScript/blob/main/pantallazos/cardview.png?raw=true)
