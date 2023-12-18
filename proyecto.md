@@ -21,7 +21,14 @@ Añadiremos nuestras propias clases POJO y Adaptadores.
    
 # Archivos XML:
 1. **activity_login.xml**: Diseño de la interfaz de usuario para la pantalla de inicio de sesión.
+![Ejemplo de imagen](https://github.com/lucopa/EjerciciosJavaScript/blob/main/pantallazos/Login.png?raw=true)
+
 2. **activity_main.xml**: Diseño de la interfaz de usuario principal que muestra la lista de películas.
 3. **cardview_film.xml**: Diseño de un elemento de la lista de películas utilizando CardView.
 
 ## VERSIÓN 1.2
+En esta segunda versión, se realiza el crud completo. Añadimos las funciones de editar y dar de alta nuevas películas.
+
+## Estructura del Proyecto:
+Contiene los mismos activitys que en la versión anterior 
+# Archivos XML:
