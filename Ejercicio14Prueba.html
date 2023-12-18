@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="numero">Selecciona un numero</label>
+    <select id="numero" name="numero" onchange=cambiarTabla()>
+
+        <option value="0">Selecciona un numero</option>
+    </select>
+
+    <div id="tabla"></div>
+
+    <script>
+        function cambiarTabla() {
+            const selectNumero = document.getElementById("numero");
+            const numeroSeleccionado = parseInt(selectNumero.value);
+            const tablaDiv = document.getElementById("tabla");
+
+            tablaDiv.innerHTML = "";
+
+            if (numeroSeleccionado!==0){
+                let tabla = "<table>";
+                    tabla = `<caption>Tabla de multiplicar del ${numeroSeleccionado}</caption>`;
+
+            for (let i = 0; i <= 10; i++) {
+                tabla += `<tr><td>${numeroSeleccionado} X ${i}</td><td>`;
+                
+            }
+            }
+
+        }
+
+        const select = document.getElementById("numero").value;
+        for (let i=0;i>10;i++) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.textContent = i;
+            select.appendChild(option);
+
+        }
+
+    </script>
+</body>
+</html>

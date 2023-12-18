@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acertijos 2</title>
+    <style>
+    body{
+         font-family: Arial, Helvetica, sans-serif;
+         text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>ACERTIJOS</h1>
+    <p>Resuelve el acertijo:</p>
+    <p id="acertijo"></p>
+
+    <form id="form">
+        <input type="number" id="respuestaNumero" placeholder="Resultado">
+
+        <button type="submit" id="boton">Comprobar</button>
+
+        <p id="resultado"></p>
+    </form>
+
+    <script>
+        const numero1 = 45;
+        const numero2 = 5;
+        const operador1 = '+';
+        const operador2 = '-';
+
+        const expresion= `${numero1}${operador2}${numero2}${operador1}${numero1}`;
+
+        document.getElementById('acertijo').textContent = `Resuelve este acertijo: ${expresion}`;
+
+        document.getElementById("form").addEventListener("submit", function(event){
+            event.preventDefault();
+
+            const respuestaUsu = parseInt(document.getElementById("respuestaNumero").value);
+            const respuestaCorrect = numero1-numero2+numero1;
+
+            if(respuestaUsu == respuestaCorrect) {
+                document.getElementById("resultado").textContent= "Respuesta correcta";
+        }else{
+            document.getElementById("resultado").textContent= "Respuesta incorrecta";
+        }})
+    </script>
+    
+</body>
+</html>

@@ -22,6 +22,6 @@ document.getElementById('formulario').addEventListener('submit', function(event)
   }
   
   function validarEdad(edad) {
-    return !isNaN(edad) && edad >= 0 && edad <= 120;
+    return edad>0 && edad<120;
   }
   

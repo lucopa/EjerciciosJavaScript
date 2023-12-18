@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Acertijo Matemático</title>
   <style>
- 
     body {
       font-family: Arial, sans-serif;
       text-align: center;
@@ -32,6 +31,27 @@
 
   <p id="resultado"></p>
 
-  <script src="Ejercicio8.js"></script>
+  <script>
+    const numero1 = 25;
+    const numero2 = 5;
+    const operador1 = '+';
+    const operador2 = '-';
+
+    const expresion = `${numero1} ${operador1} ${numero2} ${operador2} ${numero1}`;
+    document.getElementById('acertijo').textContent = `¿Cuál es el resultado de: ${expresion}?`;
+
+    document.getElementById('respuestaForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const respuestaUsuario = parseInt(document.getElementById('respuestaInput').value);
+      const respuestaCorrecta = numero1 + numero2 - numero1;
+  
+      if (respuestaUsuario === respuestaCorrecta) {
+        document.getElementById('resultado').textContent = '¡Has acertado!';
+      } else {
+        document.getElementById('resultado').textContent = 'Respuesta incorrecta. Inténtalo de nuevo.';
+      }
+    });
+  </script>
 </body>
 </html>

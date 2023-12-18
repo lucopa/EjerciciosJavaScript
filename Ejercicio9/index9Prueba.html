@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generador de contraseñas 2</title>
+</head>
+<body>
+    <h1>GENERADOR DE CONTRASEÑAS</h1>
+    <form id="formulario">
+        <input type="number" id="numero" placeholder="Longitud de contraseña">
+        <button type="submit" id="boton">
+            Generar
+        </button>
+    </form>
+    <p id="final"></p>
+
+    <script>
+        document.getElementById("boton").addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const longitud = document.getElementById("numero").value;
+            const contraseña = generarContraseña(longitud);
+            document.getElementById("final").textContent = `Contraseña generada: ${contraseña}`;
+        })
+
+        function generarContraseña(longitud) {
+            const caracteres = "1234567890qwertyuiopasdfghjklñzxcvbnm,.-_*@#~€¬";
+            let contraseña = "";
+
+            for (let i = 0; i < longitud; i++) {
+                const caracterRandom = caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+                contraseña += caracterRandom;
+            }
+            return contraseña;
+        }
+    </script>
+    
+</body>
+</html>

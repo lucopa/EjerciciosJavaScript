@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUEGO: PIEDRA, PAPEL O TIJERA</title>
+</head>
+<body>
+    <h1>JUEGA, ELIGE UNA OPCIÓN</h1>
+    <button onclick="jugar('piedra')">PIEDRA</button>
+    <button onclick="jugar('papel')">PAPEL</button>
+    <button onclick="jugar('tijera')">TIJERA</button>
+
+    <p id="resultadop"></p>
+
+    <script>
+        function jugar(eleccion) {
+            const opciones = ["piedra", "papel", "tijera"];
+            const eleccionMaquina = opciones[Math.floor(Math.random() * opciones.length)];
+
+            let resultado = "";
+            if (eleccionMaquina === eleccion) {
+                resultado = "Empate";
+            } else if (
+                (eleccionMaquina === "piedra" && eleccion === "papel") ||
+                (eleccionMaquina === "tijera" && eleccion === "piedra") ||
+                (eleccionMaquina === "papel" && eleccion === "tijera")
+            ) {
+                resultado = "¡Ganaste!";
+            } else {
+                resultado = "¡Perdiste!";
+            }
+
+            const solucion = document.getElementById("resultadop");
+            solucion.textContent = `La máquina eligió ${eleccionMaquina} y tú elegiste ${eleccion}. ${resultado}`;
+        }
+    </script>
+</body>
+</html>

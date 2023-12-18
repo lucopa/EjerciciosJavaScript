@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Piedra, Papel o Tijera</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Piedra, Papel o Tijera</h1>
+
+  <button onclick="jugar('piedra')">Piedra</button>
+  <button onclick="jugar('papel')">Papel</button>
+  <button onclick="jugar('tijera')">Tijera</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function jugar(eleccionUsuario) {
+      const opciones = ['piedra', 'papel', 'tijera'];
+      const eleccionMaquina = opciones[Math.floor(Math.random() * 3)];
+
+      let resultado = '';
+      if (eleccionUsuario === eleccionMaquina) {
+        resultado = 'Empate';
+      } else if (
+        (eleccionUsuario === 'piedra' && eleccionMaquina === 'tijera') ||
+        (eleccionUsuario === 'papel' && eleccionMaquina === 'piedra') ||
+        (eleccionUsuario === 'tijera' && eleccionMaquina === 'papel')
+      ) {
+        resultado = '¡Ganaste!';
+      } else {
+        resultado = '¡Perdiste!';
+      }
+
+      const resultadoDiv = document.getElementById('resultado');
+      resultadoDiv.textContent = `Elegiste ${eleccionUsuario}. La máquina eligió ${eleccionMaquina}. ${resultado}`;
+    }
+  </script>
+</body>
+</html>

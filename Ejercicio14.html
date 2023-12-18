@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla de Multiplicar</title>
+</head>
+<body>
+  <h1>Tabla de Multiplicar</h1>
+
+  <label for="numero">Selecciona un número:</label>
+  <select id="numero" onchange="generarTabla()">
+    <option value="0">Selecciona un número</option>
+    <!-- Generar opciones del 1 al 10 con JavaScript -->
+  </select>
+
+  <div id="tablaMultiplicar"></div>
+
+  <script>
+    function generarTabla() {
+      const selectNumero = document.getElementById('numero');
+      const numeroSeleccionado = parseInt(selectNumero.value);
+      const tablaDiv = document.getElementById('tablaMultiplicar');
+      
+      tablaDiv.innerHTML = ''; // Limpiar la tabla antes de generar una nueva
+
+      if (numeroSeleccionado !== 0) {
+        let tabla = '<table>';
+        tabla += `<caption>Tabla de Multiplicar del ${numeroSeleccionado}</caption>`;
+
+        for (let i = 1; i <= 10; i++) {
+          tabla += `<tr><td>${numeroSeleccionado} x ${i}</td><td>${numeroSeleccionado * i}</td></tr>`;
+        }
+
+        tabla += '</table>';
+        tablaDiv.innerHTML = tabla;
+      }
+    }
+
+    // Generar opciones del 1 al 10 en el select
+    const selectNumero = document.getElementById('numero');
+    for (let i = 1; i <= 10; i++) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = i;
+      selectNumero.appendChild(option);
+    }
+  </script>
+</body>
+</html>

@@ -6,7 +6,7 @@ function generarAcertijo() {
     const operador1 = operadores[Math.floor(Math.random() * operadores.length)];
     const operador2 = operadores[Math.floor(Math.random() * operadores.length)];
   
-    return `${numero1} ${operador1} ${numero2} ${operador2} ${numero2}`;
+    return `${numero1} ${operador1} ${numero2} ${operador2} ${numero1}`;
   }
   
   // Mostrar el acertijo en la página
